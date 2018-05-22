@@ -2,48 +2,57 @@
 #define BODY_H_
 
 void
-drawEye();
+drawEye ();
 
 void
-drawFace();
+drawMouth ();
 
 void
-drawHair();
+drawNose ();
 
 void
-drawHead();
+drawFace ();
 
 void
-drawRightArm();
+drawHair ();
 
 void
-drawLeftArm();
+drawNeck ();
 
 void
-drawArms();
+drawHead ();
 
 void
-drawRightLeg();
+drawRightArm ();
 
 void
-drawLeftLeg();
+drawLeftArm ();
 
 void
-drawLegs();
+drawArms ();
 
 void
-drawRightFoot();
+drawRightLeg ();
 
 void
-drawLeftFoot();
+drawLeftLeg ();
 
 void
-drawFeet();
+drawLegs ();
 
 void
-drawBody();
+drawRightFoot ();
 
 void
-drawCharacter();
+drawLeftFoot ();
+
+void
+drawFeet ();
+
+void
+drawBody ();
+
+void
+drawCharacter ();
 
 #endif

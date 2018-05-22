@@ -8,28 +8,55 @@ float gSkin = 217.0 / 255.0;
 float bSkin = 15.0 / 255.0;
 
 void
-drawEye()
+drawEye ()
 {
     printf ("Draw eye\n");
 }
 
 void
-drawFace()
+drawMouth ()
+{
+    printf ("Draw mouth\n");
+}
+
+void
+drawNose ()
+{
+    printf ("Draw nose\n");
+}
+
+void
+drawFace ()
 {
     printf ("Draw face\n");
 
     drawEye ();
     drawEye ();
+    drawMouth ();
+    drawNose ();
 }
 
 void
-drawHair()
+drawHair ()
 {
     printf ("Draw hair\n");
 }
 
 void
-drawHead()
+drawNeck ()
+{
+    printf ("Draw neck\n");
+
+    glPushMatrix ();
+    glTranslatef (0.0, 0.35, -6.0);
+    glScalef (0.2, 0.2, 0.2);
+    glRotatef (90, 1.0, 0.0, 0.0);
+    gluCylinder (gluNewQuadric (), 1, 1, 1.0, 100, 100);
+    glPopMatrix ();
+}
+
+void
+drawHead ()
 {
     printf ("Draw head\n");
 
@@ -37,7 +64,7 @@ drawHead()
     Drawing a sphere that represent the bottom part of the head
     **/
     glPushMatrix ();
-    glTranslatef (0, 1.0, -6.0);
+    glTranslatef (0.0, 1.0, -6.0);
     glScalef (0.7, 0.7, 0.7);
     glColor3f (rSkin, gSkin, bSkin);
     gluSphere (gluNewQuadric (), 1, 100, 100);
@@ -47,30 +74,31 @@ drawHead()
     Drawing a cylinder that represent the top part of the head
     **/
     glPushMatrix ();
-    glTranslatef (0, 2.0, -6.0);
+    glTranslatef (0.0, 2.0, -6.0);
     glScalef (0.7, 1.0, 0.7);
     glRotatef (90, 1.0, 0.0, 0.0);
     gluCylinder (gluNewQuadric (), 1, 1, 1.0, 100, 100);
     glPopMatrix ();
 
+    drawNeck ();
     drawHair ();
     drawFace ();
 }
 
 void
-drawRightArm()
+drawRightArm ()
 {
     printf ("Draw right arm\n");
 }
 
 void
-drawLeftArm()
+drawLeftArm ()
 {
     printf ("Draw left arm\n");
 }
 
 void
-drawArms()
+drawArms ()
 {
     printf ("Draw arms\n");
 
@@ -79,19 +107,19 @@ drawArms()
 }
 
 void
-drawRightLeg()
+drawRightLeg ()
 {
     printf ("Draw right leg\n");
 }
 
 void
-drawLeftLeg()
+drawLeftLeg ()
 {
     printf ("Draw left leg\n");
 }
 
 void
-drawLegs()
+drawLegs ()
 {
     printf ("Draw legs\n");
 
@@ -100,19 +128,19 @@ drawLegs()
 }
 
 void
-drawRightFoot()
+drawRightFoot ()
 {
     printf ("Draw right foot\n");
 }
 
 void
-drawLeftFoot()
+drawLeftFoot ()
 {
     printf ("Draw left foot\n");
 }
 
 void
-drawFeet()
+drawFeet ()
 {
     printf ("Draw feet\n");
 
@@ -121,13 +149,13 @@ drawFeet()
 }
 
 void
-drawBody()
+drawBody ()
 {
     printf ("Draw body\n");
 }
 
 void
-drawCharacter()
+drawCharacter ()
 {
     printf ("Draw character\n");
 

@@ -17,6 +17,13 @@ void
 drawMouth ()
 {
     printf ("Draw mouth\n");
+
+    glColor3f (0.2, 0.2, 0.2);
+    glPushMatrix ();
+    glTranslatef (0.0, 0.6, -6.0);
+    glScalef (0.57, 0.15, 0.57);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
+    glPopMatrix ();
 }
 
 void
@@ -44,10 +51,10 @@ drawFace ()
 {
     printf ("Draw face\n");
 
+    drawNose ();
     drawEye (-0.5);
     drawEye (0.5);
     drawMouth ();
-    drawNose ();
 }
 
 void

@@ -8,9 +8,28 @@ float gSkin = 217.0 / 255.0;
 float bSkin = 15.0 / 255.0;
 
 void
-drawEye (int xTranslation)
+drawEye (float xTranslation)
 {
     printf ("Draw eye\n");
+    int rotation = 1;
+    if(xTranslation * 100 < 0)
+        rotation = -1;
+
+    glColor3f (0.9, 0.9, 0.9);
+    glPushMatrix ();
+    glTranslatef (xTranslation, 1.3, -5.4);
+    glRotatef (20, 0.0, 0.5 * rotation, 0.0);
+    glScalef (0.25, 0.25, 0.1);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
+    glPopMatrix ();
+
+    glColor3f (0.25, 0.25, 0.25);
+    glPushMatrix ();
+    glTranslatef (xTranslation, 1.2, -5.0);
+    glRotatef (20, 0.0, 0.5 * rotation, 0.0);
+    glScalef (0.05, 0.05, 0.01);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
+    glPopMatrix ();
 }
 
 void
@@ -18,7 +37,7 @@ drawMouth ()
 {
     printf ("Draw mouth\n");
 
-    glColor3f (0.2, 0.2, 0.2);
+    glColor3f (0.25, 0.25, 0.25);
     glPushMatrix ();
     glTranslatef (0.0, 0.6, -6.0);
     glScalef (0.57, 0.15, 0.57);
@@ -52,8 +71,8 @@ drawFace ()
     printf ("Draw face\n");
 
     drawNose ();
-    drawEye (-0.5);
-    drawEye (0.5);
+    drawEye (-0.27);
+    drawEye (0.27);
     drawMouth ();
 }
 

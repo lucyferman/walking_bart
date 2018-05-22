@@ -2,7 +2,7 @@
 #define BODY_H_
 
 void
-drawEye ();
+drawEye (int xTranslation);
 
 void
 drawMouth ();

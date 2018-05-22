@@ -8,7 +8,7 @@ float gSkin = 217.0 / 255.0;
 float bSkin = 15.0 / 255.0;
 
 void
-drawEye ()
+drawEye (int xTranslation)
 {
     printf ("Draw eye\n");
 }
@@ -23,6 +23,20 @@ void
 drawNose ()
 {
     printf ("Draw nose\n");
+
+    // Draw the first part of the nose with a cylinder
+    glPushMatrix ();
+    glTranslatef (0.0, 0.7, -4.4);
+    glScalef (0.1, 0.1, 0.4);
+    gluCylinder (gluNewQuadric (), 1, 1, 1.0, 100, 100);
+    glPopMatrix ();
+
+    // Draw the last part of the nose with a sphere
+    glPushMatrix ();
+    glTranslatef (0.0, 0.7, -4.0);
+    glScalef (0.1, 0.1, 0.1);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
+    glPopMatrix ();
 }
 
 void
@@ -30,8 +44,8 @@ drawFace ()
 {
     printf ("Draw face\n");
 
-    drawEye ();
-    drawEye ();
+    drawEye (-0.5);
+    drawEye (0.5);
     drawMouth ();
     drawNose ();
 }
@@ -47,6 +61,7 @@ drawNeck ()
 {
     printf ("Draw neck\n");
 
+    glColor3f (rSkin, rSkin, bSkin);
     glPushMatrix ();
     glTranslatef (0.0, 0.35, -6.0);
     glScalef (0.2, 0.2, 0.2);
@@ -63,10 +78,10 @@ drawHead ()
     /**
     Drawing a sphere that represent the bottom part of the head
     **/
+    glColor3f (rSkin, gSkin, bSkin);
     glPushMatrix ();
     glTranslatef (0.0, 1.0, -6.0);
     glScalef (0.7, 0.7, 0.7);
-    glColor3f (rSkin, gSkin, bSkin);
     gluSphere (gluNewQuadric (), 1, 100, 100);
     glPopMatrix ();
 

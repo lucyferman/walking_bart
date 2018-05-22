@@ -1,6 +1,6 @@
-#include <stdio.h>
 #include <GL/glut.h>
 #include <GL/gl.h>
+#include "body.h"
 
 void resize(int width, int height)
 {
@@ -21,7 +21,7 @@ display ()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glColor3d(0.95, 0.95, 0.95);
 
-    
+    drawCharacter();
 
     glutSwapBuffers();
 }

@@ -119,10 +119,12 @@ drawHead ()
 {
     printf ("Draw head\n");
 
+
+    glColor3f (rSkin, gSkin, bSkin);
+
     /**
     Drawing a sphere that represent the bottom part of the head
     **/
-    glColor3f (rSkin, gSkin, bSkin);
     glPushMatrix ();
     glTranslatef (0.0, 1.0, -6.0);
     glScalef (0.7, 0.7, 0.7);
@@ -137,6 +139,13 @@ drawHead ()
     glScalef (0.7, 1.0, 0.7);
     glRotatef (90, 1.0, 0.0, 0.0);
     gluCylinder (gluNewQuadric (), 1, 1, 1.0, 100, 100);
+    glPopMatrix ();
+
+    // Head cover
+    glPushMatrix ();
+    glTranslatef (0.0, 2.0, -6.0);
+    glScalef (0.7, 0.001, 0.7);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
     glPopMatrix ();
 
     drawEar (-0.71);

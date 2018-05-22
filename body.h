@@ -2,13 +2,13 @@
 #define BODY_H_
 
 void
-drawHead();
-
-void
 drawEye();
 
 void
 drawFace();
+
+void
+drawHead();
 
 void
 drawRightArm();

@@ -15,6 +15,7 @@ drawEye (float xTranslation)
     if(xTranslation * 100 < 0)
         rotation = -1;
 
+    // Draw the sclera
     glColor3f (0.9, 0.9, 0.9);
     glPushMatrix ();
     glTranslatef (xTranslation, 1.3, -5.4);
@@ -23,6 +24,7 @@ drawEye (float xTranslation)
     gluSphere (gluNewQuadric (), 1, 100, 100);
     glPopMatrix ();
 
+    // Draw the pupil
     glColor3f (0.25, 0.25, 0.25);
     glPushMatrix ();
     glTranslatef (xTranslation, 1.2, -5.0);
@@ -61,6 +63,22 @@ drawNose ()
     glPushMatrix ();
     glTranslatef (0.0, 0.7, -4.0);
     glScalef (0.1, 0.1, 0.1);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
+    glPopMatrix ();
+}
+
+void
+drawEar(float xTranslation)
+{
+    printf ("Draw ear\n");
+    int rotation = 1;
+    if(xTranslation * 100 > 0)
+        rotation = -1;
+
+    glPushMatrix ();
+    glTranslatef (xTranslation, 1.3, -6);
+    glRotatef (30, 0.0, 0.0, 0.5 * rotation);
+    glScalef (0.08, 0.12, 0.05);
     gluSphere (gluNewQuadric (), 1, 100, 100);
     glPopMatrix ();
 }
@@ -121,6 +139,8 @@ drawHead ()
     gluCylinder (gluNewQuadric (), 1, 1, 1.0, 100, 100);
     glPopMatrix ();
 
+    drawEar (-0.71);
+    drawEar (0.71);
     drawNeck ();
     drawHair ();
     drawFace ();

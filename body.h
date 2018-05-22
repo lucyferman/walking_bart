@@ -11,6 +11,9 @@ void
 drawNose ();
 
 void
+drawEar (float xTranslation);
+
+void
 drawFace ();
 
 void

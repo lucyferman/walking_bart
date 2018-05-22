@@ -8,6 +8,9 @@ void
 drawFace();
 
 void
+drawHair();
+
+void
 drawHead();
 
 void

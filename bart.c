@@ -2,7 +2,8 @@
 #include <GL/gl.h>
 #include "body.h"
 
-void resize(int width, int height)
+void
+resize (int width, int height)
 {
     const float ar = (float) width / (float) height;
 
@@ -40,14 +41,16 @@ int
 main (int argc, char** argv)
 {
     glutInit (&argc, argv);
-    glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize (500, 500);
+    glutInitWindowPosition (10,10);
+    glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+
     glutCreateWindow ("Walking bart");
 
     glutReshapeFunc(resize);
     glutDisplayFunc (display);
 
-    glClearColor(0.3, 0.3, 0.3,1);
+    glClearColor(0.8, 0.8, 0.8, 1);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
 
@@ -69,6 +72,7 @@ main (int argc, char** argv)
     glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular);
     glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
 
-    glutMainLoop ();
-    return 0;
+    glutMainLoop();
+
+    return EXIT_SUCCESS;
 }

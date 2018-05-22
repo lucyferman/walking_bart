@@ -3,6 +3,10 @@
 #include <GL/gl.h>
 #include <stdio.h>
 
+float rSkin = 255.0 / 255.0;
+float gSkin = 217.0 / 255.0;
+float bSkin = 15.0 / 255.0;
+
 void
 drawEye()
 {
@@ -19,10 +23,37 @@ drawFace()
 }
 
 void
+drawHair()
+{
+    printf ("Draw hair\n");
+}
+
+void
 drawHead()
 {
     printf ("Draw head\n");
 
+    /**
+    Drawing a sphere that represent the bottom part of the head
+    **/
+    glPushMatrix ();
+    glTranslatef (0, 1.0, -6.0);
+    glScalef (0.7, 0.7, 0.7);
+    glColor3f (rSkin, gSkin, bSkin);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
+    glPopMatrix ();
+
+    /**
+    Drawing a cylinder that represent the top part of the head
+    **/
+    glPushMatrix ();
+    glTranslatef (0, 2.0, -6.0);
+    glScalef (0.7, 1.0, 0.7);
+    glRotatef (90, 1.0, 0.0, 0.0);
+    gluCylinder (gluNewQuadric (), 1, 1, 1.0, 100, 100);
+    glPopMatrix ();
+
+    drawHair ();
     drawFace ();
 }
 

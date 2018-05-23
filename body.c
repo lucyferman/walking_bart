@@ -1,4 +1,5 @@
 #include "body.h"
+#include "body_utils.h"
 #include <GL/glut.h>
 #include <GL/gl.h>
 #include <stdio.h>
@@ -12,7 +13,7 @@ drawEye (float xTranslation)
 {
     printf ("Draw eye\n");
     int rotation = 1;
-    if(xTranslation * 100 < 0)
+    if (xTranslation * 100 < 0)
         rotation = -1;
 
     // Draw the sclera
@@ -72,7 +73,7 @@ drawEar(float xTranslation)
 {
     printf ("Draw ear\n");
     int rotation = 1;
-    if(xTranslation * 100 > 0)
+    if (xTranslation * 100 > 0)
         rotation = -1;
 
     glPushMatrix ();
@@ -95,9 +96,51 @@ drawFace ()
 }
 
 void
+drawHairSpike (float x, float z)
+{
+    printf ("Draw hair spike\n");
+    if (x * 1000 > 0)
+        x -= 0.08;
+    else if(x * 10 != 0)
+        x += 0.08;
+
+    if (z * 1000 > 0)
+        z -= 0.08;
+    else if(z * 10 != 0)
+        z += 0.08;
+
+    glPushMatrix ();
+    glTranslatef (x, 2.2, -6.0 + z);
+    glScalef (0.1, 0.2, 0.1);
+    glRotatef (90, 1.0, 0.0, 0.0);
+    gluCylinder (gluNewQuadric (), 0.2, 0.8, 1.0, 100, 100);
+    glPopMatrix ();
+}
+
+void
 drawHair ()
 {
     printf ("Draw hair\n");
+
+    VertexCoordinates coordinates;
+    int i;
+    int j;
+    int nAux;
+    float radiusAux;
+    int radius = 0.7;
+    int n = 4;
+    int ns[4] = { 13, 10, 5, 1 };
+    float radiuses[4] = { 0.7, 0.47, 0.3, 0 };
+    for (i = 0; i < n; i++)
+    {
+        nAux = ns[i];
+        radiusAux = radiuses[i];
+        for (j = 0; j < nAux; j++)
+        {
+            coordinates = getSpikeCoordinates (0.0, 0.0, radiusAux, nAux, j);
+            drawHairSpike (coordinates.x, coordinates.z);
+        }
+    }
 }
 
 void

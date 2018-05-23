@@ -17,6 +17,9 @@ void
 drawFace ();
 
 void
+drawHairSpike (float x, float z);
+
+void
 drawHair ();
 
 void

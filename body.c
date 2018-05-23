@@ -8,6 +8,10 @@ float rSkin = 255.0 / 255.0;
 float gSkin = 217.0 / 255.0;
 float bSkin = 15.0 / 255.0;
 
+float rShirt = 222.0 / 255.0;
+float gShirt = 90.0 / 255.0;
+float bShirt = 57.0 / 255.0;
+
 void
 drawEye (float xTranslation)
 {
@@ -129,7 +133,7 @@ drawHair ()
     float radiusAux;
     int radius = 0.7;
     int n = 4;
-    int ns[4] = { 13, 10, 5, 1 };
+    int ns[4] = { 17, 15, 5, 1 };
     float radiuses[4] = { 0.7, 0.47, 0.3, 0 };
     for (i = 0; i < n; i++)
     {
@@ -265,6 +269,15 @@ void
 drawBody ()
 {
     printf ("Draw body\n");
+
+    glColor3f (rShirt, gShirt, bShirt);
+
+    glPushMatrix ();
+    glTranslatef (0.0, 0.2, -6.0);
+    glScalef (0.7, 1.0, 0.7);
+    glRotatef (90, 1.0, 0.0, 0.0);
+    gluCylinder (gluNewQuadric (), 0.35, 0.6, 1.3, 100, 100);
+    glPopMatrix ();
 }
 
 void

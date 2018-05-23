@@ -272,11 +272,26 @@ drawBody ()
 
     glColor3f (rShirt, gShirt, bShirt);
 
+    // The fucking body
     glPushMatrix ();
     glTranslatef (0.0, 0.2, -6.0);
     glScalef (0.7, 1.0, 0.7);
     glRotatef (90, 1.0, 0.0, 0.0);
-    gluCylinder (gluNewQuadric (), 0.35, 0.6, 1.3, 100, 100);
+    gluCylinder (gluNewQuadric (), 0.35, 0.7, 1.3, 100, 100);
+    glPopMatrix ();
+
+    // Top cover
+    glPushMatrix ();
+    glTranslatef (0.0, 0.2, -6.0);
+    glScalef (0.245, 0.001, 0.245);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
+    glPopMatrix ();
+
+    // Bottom cover
+    glPushMatrix ();
+    glTranslatef (0.0, -1.1, -6.0);
+    glScalef (0.49, 0.001, 0.49);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
     glPopMatrix ();
 }
 

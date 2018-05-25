@@ -9,4 +9,4 @@ $ ./super_bart.o
 
 `w` -> Bart walks
 
-`s` -> Bart stops and the program reset the default values
+`r` -> Bart stops and the program reset the default values

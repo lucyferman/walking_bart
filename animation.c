@@ -42,10 +42,6 @@ walk (unsigned char key, int x, int y)
             IS_WALKING = 1;
         }
         break;
-        case 's':
-        if (IS_WALKING)
-            initialize ();
-        break;
         case 'r':
         {
             initialize ();

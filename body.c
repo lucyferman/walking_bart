@@ -1,5 +1,6 @@
 #include "body.h"
 #include "body_utils.h"
+#include "animation.h"
 #include <GL/glut.h>
 #include <GL/gl.h>
 #include <stdio.h>
@@ -15,8 +16,6 @@ float bShirt = 57.0 / 255.0;
 float rShort = 33.0 / 255.0;
 float gShort = 209.0 / 255.0;
 float bShort = 255.0 / 255.0;
-
-int DEPTH = -6.0;
 
 void
 drawEye (int xTranslation)

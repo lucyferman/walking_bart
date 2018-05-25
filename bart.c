@@ -2,11 +2,13 @@
 #include <GL/gl.h>
 #include "body.h"
 #include "animation.h"
+#include "scenario.h"
 
 void
 init ()
 {
     initialize ();
+    loadTexture ();
 }
 
 void
@@ -30,6 +32,7 @@ display ()
     glColor3d (0.95, 0.95, 0.95);
 
     drawCharacter ();
+    drawScenario ();
 
     glutSwapBuffers ();
 }

@@ -1,5 +1,5 @@
-#ifndef BODY_UTILS_H
-#define BODY_UTILS_H
+#ifndef BODY_UTILS_H_
+#define BODY_UTILS_H_
 
 typedef struct VertexCoordinates
 {

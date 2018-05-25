@@ -3,6 +3,7 @@
 
 extern float DEPTH;
 extern float ARM_ROTATION;
+extern float LEG_ROTATION;
 extern int IS_WALKING;
 
 void

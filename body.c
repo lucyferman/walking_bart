@@ -262,6 +262,7 @@ drawLeg (int xTranslation)
     glTranslatef (0.16 * xTranslation, -1.6, DEPTH);
     glScalef (0.13, 0.5, 0.13);
     glRotatef (90, 1.0, 0.0, 0.0);
+    glRotatef (LEG_ROTATION * xTranslation, 1.0, 0.0, 0.0);
     gluCylinder (gluNewQuadric (), 1.0, 1.0, 1.0, 100, 100);
     glPopMatrix ();
 }
@@ -282,6 +283,7 @@ drawFoot (int xTranslation)
     glPushMatrix ();
     glTranslatef (0.16 * xTranslation, -2.1, DEPTH);
     glScalef (0.13, 0.15, 0.13);
+    glRotatef (LEG_ROTATION * xTranslation, 1.0, 0.0, 0.0);
     gluSphere (gluNewQuadric (), 1.0, 100, 100);
     glPopMatrix ();
 }

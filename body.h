@@ -35,10 +35,7 @@ void
 drawArms ();
 
 void
-drawRightLeg ();
-
-void
-drawLeftLeg ();
+drawLeg (int xTranslation);
 
 void
 drawLegs ();

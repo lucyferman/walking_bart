@@ -12,6 +12,10 @@ float rShirt = 222.0 / 255.0;
 float gShirt = 90.0 / 255.0;
 float bShirt = 57.0 / 255.0;
 
+float rShort = 33.0 / 255.0;
+float gShort = 209.0 / 255.0;
+float bShort = 255.0 / 255.0;
+
 void
 drawEye (int xTranslation)
 {
@@ -238,15 +242,11 @@ drawArms ()
 }
 
 void
-drawRightLeg ()
+drawLeg (int xTranslation)
 {
     printf ("Draw right leg\n");
-}
 
-void
-drawLeftLeg ()
-{
-    printf ("Draw left leg\n");
+
 }
 
 void
@@ -254,8 +254,8 @@ drawLegs ()
 {
     printf ("Draw legs\n");
 
-    drawLeftLeg ();
-    drawRightLeg ();
+    drawLeg (-1);
+    drawLeg (1);
 }
 
 void
@@ -305,6 +305,15 @@ drawBody ()
     glPushMatrix ();
     glTranslatef (0.0, -1.1, -6.0);
     glScalef (0.35, 0.001, 0.35);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
+    glPopMatrix ();
+
+    glColor3f (rShort, gShort, bShort);
+
+    // The short
+    glPushMatrix ();
+    glTranslatef (0.0, -1.1, -6.0);
+    glScalef (0.35, 0.4, 0.35);
     gluSphere (gluNewQuadric (), 1, 100, 100);
     glPopMatrix ();
 }

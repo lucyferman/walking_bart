@@ -280,6 +280,15 @@ void
 drawFoot (int xTranslation)
 {
     printf ("Draw right foot\n");
+
+    glColor3f (rShort, gShort, bShort);
+
+    // One shoe
+    glPushMatrix ();
+    glTranslatef (0.16 * xTranslation, -2.1, -6.0);
+    glScalef (0.13, 0.15, 0.13);
+    gluSphere (gluNewQuadric (), 1.0, 100, 100);
+    glPopMatrix ();
 }
 
 void

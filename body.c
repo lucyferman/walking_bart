@@ -13,17 +13,17 @@ float gShirt = 90.0 / 255.0;
 float bShirt = 57.0 / 255.0;
 
 void
-drawEye (float xTranslation)
+drawEye (int xTranslation)
 {
     printf ("Draw eye\n");
     int rotation = 1;
-    if (xTranslation * 100 < 0)
+    if (xTranslation < 0)
         rotation = -1;
 
     // Draw the sclera
     glColor3f (0.9, 0.9, 0.9);
     glPushMatrix ();
-    glTranslatef (xTranslation, 1.3, -5.4);
+    glTranslatef (0.27 * xTranslation, 1.3, -5.4);
     glRotatef (20, 0.0, 0.5 * rotation, 0.0);
     glScalef (0.25, 0.25, 0.1);
     gluSphere (gluNewQuadric (), 1, 100, 100);
@@ -32,7 +32,7 @@ drawEye (float xTranslation)
     // Draw the pupil
     glColor3f (0.25, 0.25, 0.25);
     glPushMatrix ();
-    glTranslatef (xTranslation, 1.2, -5.0);
+    glTranslatef (0.27 * xTranslation, 1.2, -5.0);
     glRotatef (20, 0.0, 0.5 * rotation, 0.0);
     glScalef (0.05, 0.05, 0.01);
     gluSphere (gluNewQuadric (), 1, 100, 100);
@@ -73,15 +73,15 @@ drawNose ()
 }
 
 void
-drawEar(float xTranslation)
+drawEar(int xTranslation)
 {
     printf ("Draw ear\n");
     int rotation = 1;
-    if (xTranslation * 100 > 0)
+    if (xTranslation > 0)
         rotation = -1;
 
     glPushMatrix ();
-    glTranslatef (xTranslation, 1.3, -6);
+    glTranslatef (0.71 * xTranslation, 1.3, -6);
     glRotatef (30, 0.0, 0.0, 0.5 * rotation);
     glScalef (0.08, 0.12, 0.05);
     gluSphere (gluNewQuadric (), 1, 100, 100);
@@ -94,8 +94,8 @@ drawFace ()
     printf ("Draw face\n");
 
     drawNose ();
-    drawEye (-0.27);
-    drawEye (0.27);
+    drawEye (-1);
+    drawEye (1);
     drawMouth ();
 }
 
@@ -195,23 +195,37 @@ drawHead ()
     gluSphere (gluNewQuadric (), 1, 100, 100);
     glPopMatrix ();
 
-    drawEar (-0.71);
-    drawEar (0.71);
+    drawEar (-1);
+    drawEar (1);
     drawNeck ();
     drawHair ();
     drawFace ();
 }
 
 void
-drawRightArm ()
+drawArm (int xTranslation)
 {
     printf ("Draw right arm\n");
-}
 
-void
-drawLeftArm ()
-{
-    printf ("Draw left arm\n");
+    glColor3f (rShirt, gShirt, bShirt);
+
+    // The shirt piece that cover part of the arm
+    glPushMatrix ();
+    glTranslatef (0.2 * xTranslation, 0.05, -6.0);
+    glScalef (0.25, 0.15, 0.2);
+    gluSphere (gluNewQuadric (), 1, 100, 100);
+    glPopMatrix ();
+
+    glColor3f (rSkin, gSkin, bSkin);
+
+    // The arm
+    glPushMatrix ();
+    glTranslatef (0.3 * xTranslation, 0.05, -6.0);
+    glRotatef (15, 0.0, 0.0, 1.0 * xTranslation);
+    glScalef (0.13, 0.9, 0.13);
+    glRotatef (90, 1.0, 0.0, 0.0);
+    gluCylinder (gluNewQuadric (), 1.0, 0.8, 1.0, 100, 100);
+    glPopMatrix ();
 }
 
 void
@@ -219,8 +233,8 @@ drawArms ()
 {
     printf ("Draw arms\n");
 
-    drawLeftArm ();
-    drawRightArm ();
+    drawArm (-1);
+    drawArm (1);
 }
 
 void
@@ -272,12 +286,12 @@ drawBody ()
 
     glColor3f (rShirt, gShirt, bShirt);
 
-    // The fucking body
+    // The body
     glPushMatrix ();
     glTranslatef (0.0, 0.2, -6.0);
     glScalef (0.7, 1.0, 0.7);
     glRotatef (90, 1.0, 0.0, 0.0);
-    gluCylinder (gluNewQuadric (), 0.35, 0.7, 1.3, 100, 100);
+    gluCylinder (gluNewQuadric (), 0.35, 0.5, 1.3, 100, 100);
     glPopMatrix ();
 
     // Top cover
@@ -290,7 +304,7 @@ drawBody ()
     // Bottom cover
     glPushMatrix ();
     glTranslatef (0.0, -1.1, -6.0);
-    glScalef (0.49, 0.001, 0.49);
+    glScalef (0.35, 0.001, 0.35);
     gluSphere (gluNewQuadric (), 1, 100, 100);
     glPopMatrix ();
 }

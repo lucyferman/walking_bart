@@ -2,7 +2,7 @@
 #define BODY_H_
 
 void
-drawEye (float xTranslation);
+drawEye (int xTranslation);
 
 void
 drawMouth ();
@@ -11,7 +11,7 @@ void
 drawNose ();
 
 void
-drawEar (float xTranslation);
+drawEar (int xTranslation);
 
 void
 drawFace ();
@@ -29,10 +29,7 @@ void
 drawHead ();
 
 void
-drawRightArm ();
-
-void
-drawLeftArm ();
+drawArm (int xTranslation);
 
 void
 drawArms ();

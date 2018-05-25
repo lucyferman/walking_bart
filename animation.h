@@ -1,6 +1,16 @@
 #ifndef ANIMATION_H_
 #define ANIMATION_H_
 
-extern int DEPTH;
+extern float DEPTH;
+extern int IS_WALKING;
+
+void
+moveCharacter ();
+
+void
+walk (unsigned char key, int x, int y);
+
+void
+initialize ();
 
 #endif

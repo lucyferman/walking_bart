@@ -1,6 +1,13 @@
 #include <GL/glut.h>
 #include <GL/gl.h>
 #include "body.h"
+#include "animation.h"
+
+void
+init ()
+{
+    initialize ();
+}
 
 void
 resize (int width, int height)
@@ -47,8 +54,10 @@ main (int argc, char** argv)
 
     glutCreateWindow ("Walking bart");
 
+    init ();
     glutReshapeFunc (resize);
     glutDisplayFunc (display);
+    glutKeyboardFunc (walk);
 
     glClearColor (0.8, 0.8, 0.8, 1);
     glEnable (GL_CULL_FACE);

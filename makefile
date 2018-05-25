@@ -14,7 +14,7 @@ body_utils.o: body_utils.c body_utils.h
 body.o: body.c body.h body_utils.h animation.h
 	$(CC) -c body.c
 
-bart.o: bart.c body.h
+bart.o: bart.c body.h animation.h
 	$(CC) -c bart.c $(CFLAGS)
 
 clean:

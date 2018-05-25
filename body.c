@@ -246,7 +246,25 @@ drawLeg (int xTranslation)
 {
     printf ("Draw right leg\n");
 
+    glColor3f (rShort, gShort, bShort);
 
+    // The part of the short that cover part of the legal
+    glPushMatrix ();
+    glTranslatef (0.16 * xTranslation, -1.3, -6.0);
+    glScalef (0.14, 0.35, 0.14);
+    glRotatef (90, 1.0, 0.0, 0.0);
+    gluCylinder (gluNewQuadric (), 1.0, 1.0, 1.0, 100, 100);
+    glPopMatrix ();
+
+    glColor3f (rSkin, gSkin, bSkin);
+
+    // The leg
+    glPushMatrix ();
+    glTranslatef (0.16 * xTranslation, -1.6, -6.0);
+    glScalef (0.13, 0.5, 0.13);
+    glRotatef (90, 1.0, 0.0, 0.0);
+    gluCylinder (gluNewQuadric (), 1.0, 1.0, 1.0, 100, 100);
+    glPopMatrix ();
 }
 
 void

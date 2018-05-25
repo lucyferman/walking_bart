@@ -2,6 +2,7 @@
 #define ANIMATION_H_
 
 extern float DEPTH;
+extern float ARM_ROTATION;
 extern int IS_WALKING;
 
 void

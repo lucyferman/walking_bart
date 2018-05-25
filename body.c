@@ -3,7 +3,6 @@
 #include "animation.h"
 #include <GL/glut.h>
 #include <GL/gl.h>
-#include <stdio.h>
 
 float rSkin = 255.0 / 255.0;
 float gSkin = 217.0 / 255.0;
@@ -211,6 +210,7 @@ drawArm (int xTranslation)
     glRotatef (15, 0.0, 0.0, 1.0 * xTranslation);
     glScalef (0.13, 0.9, 0.13);
     glRotatef (90, 1.0, 0.0, 0.0);
+    glRotatef (ARM_ROTATION * xTranslation, 1.0, 0.0, 0.0);
     gluCylinder (gluNewQuadric (), 1.0, 0.8, 1.0, 100, 100);
     glPopMatrix ();
 }
@@ -230,6 +230,7 @@ drawHand (int xTranslation)
     glPushMatrix ();
     glTranslatef (0.565 * xTranslation, -0.9, DEPTH);
     glScalef (0.13, 0.13, 0.13);
+    glRotatef (ARM_ROTATION * xTranslation, 0.1, 0.0, 0.0);
     gluSphere (gluNewQuadric (), 1.0, 100, 100);
     glPopMatrix ();
 }

@@ -277,15 +277,9 @@ drawLegs ()
 }
 
 void
-drawRightFoot ()
+drawFoot (int xTranslation)
 {
     printf ("Draw right foot\n");
-}
-
-void
-drawLeftFoot ()
-{
-    printf ("Draw left foot\n");
 }
 
 void
@@ -293,8 +287,8 @@ drawFeet ()
 {
     printf ("Draw feet\n");
 
-    drawRightFoot ();
-    drawLeftFoot ();
+    drawFoot (-1);
+    drawFoot (1);
 }
 
 void

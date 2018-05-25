@@ -41,10 +41,7 @@ void
 drawLegs ();
 
 void
-drawRightFoot ();
-
-void
-drawLeftFoot ();
+drawFoot (int xTranslation);
 
 void
 drawFeet ();

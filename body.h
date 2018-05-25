@@ -35,6 +35,12 @@ void
 drawArms ();
 
 void
+drawHand (int xTranslation);
+
+void
+drawHands ();
+
+void
 drawLeg (int xTranslation);
 
 void

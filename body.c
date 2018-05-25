@@ -209,7 +209,7 @@ drawHead ()
 void
 drawArm (int xTranslation)
 {
-    printf ("Draw right arm\n");
+    printf ("Draw arm\n");
 
     glColor3f (rShirt, gShirt, bShirt);
 
@@ -242,9 +242,32 @@ drawArms ()
 }
 
 void
+drawHand (int xTranslation)
+{
+    printf ("Draw hand\n");
+
+    glColor3f (rSkin, gSkin, bSkin);
+
+    glPushMatrix ();
+    glTranslatef (0.565 * xTranslation, -0.9, -6.0);
+    glScalef (0.13, 0.13, 0.13);
+    gluSphere (gluNewQuadric (), 1.0, 100, 100);
+    glPopMatrix ();
+}
+
+void
+drawHands ()
+{
+    printf ("Draw hands\n");
+
+    drawHand (-1);
+    drawHand (1);
+}
+
+void
 drawLeg (int xTranslation)
 {
-    printf ("Draw right leg\n");
+    printf ("Draw leg\n");
 
     glColor3f (rShort, gShort, bShort);
 
@@ -279,7 +302,7 @@ drawLegs ()
 void
 drawFoot (int xTranslation)
 {
-    printf ("Draw right foot\n");
+    printf ("Draw foot\n");
 
     glColor3f (rShort, gShort, bShort);
 
@@ -349,4 +372,5 @@ drawCharacter ()
     drawLegs ();
     drawFeet ();
     drawArms ();
+    drawHands ();
 }
